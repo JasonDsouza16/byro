@@ -1,2 +1,2 @@
 # byro
-Bring Your Restaurant Online (BE internship)
+Bring Your Restaurant Online (BE internship, Sep 2021)
