@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Organisation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body class="container" style="margin-top: 50px;">
+
+    <% if (messages.success) { %>
+    <div class="alert alert-success" role="alert"><%- messages.success %></div>
+    <% } %>
+
+    <% if (messages.error) { %>
+    <div class="alert alert-danger" role="alert"><%- messages.error %></div>
+    <% } %>
+
+    <div class="card"> 
+        <div class="card-header">
+            <ul class="nav nav-pills w-100">
+                <li class="nav-pill active">
+                    <a class="nav-link">Organisation List</a>
+                </li>
+                <li class="nav-pill ml-auto">
+                    <a class="nav-link active" href="/admin/add_org">Add Organisation</a>
+                </li>
+            </ul>
+        </div>
+    <div class="card-body">
+        
+        <% if(data.length) { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Logo</th>
+                    <th scope="col">About Us</th>
+                    <th scope="col">Tagline</th>
+                    <th scope="col">Landing Image</th>
+                    <th scope="col">About Us Image</th>
+                    <th width="200px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% for(var i = 0; i < data.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= data[i].org_name %></th>
+                    <td><a href="<%= data[i].org_logo%>" target="_blank" rel="noopener noreferrer"><img src="https://res.cloudinary.com/byro/image/upload/v1632035797/public/icon/view-icon.png"></a></td>
+                    <td><%= data[i].org_about_us%></td>
+                    <td><%= data[i].org_tagline%></td>
+                    <td><a href="<%= data[i].org_landing_img%>" target="_blank" rel="noopener noreferrer"><img src="https://res.cloudinary.com/byro/image/upload/v1632035797/public/icon/view-icon.png"></a></td>
+                    <td><a href="<%= data[i].org_about_us_img%>" target="_blank" rel="noopener noreferrer"><img src="https://res.cloudinary.com/byro/image/upload/v1632035797/public/icon/view-icon.png"></a></td>
+                    <td style="width: 270px">
+                    <a class="btn btn-secondary add" href="/home/o/<%= data[i].org_name %>/add_br">Add Branch</a>
+                    <a class="btn btn-success edit" href="/admin/<%=data[i].org_name%>/edit">Edit</a>         
+                    <a class="btn btn-danger delete" onclick="return alert('Are You sure?')" href="/admin/<%=data[i].org_name%>/delete">Delete</a>  
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+        <% } %>
+        <!-- if result is empty -->
+        <% if(!data.length) { %>
+            <p class="text-center">No organisation found!</p>
+        <% } %>
+        </div>
+    </div>
+</body>
+</html>

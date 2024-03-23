@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Add Organisation</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body class="container" style="margin-top: 50px;">
+
+	<% if (messages.error) { %>
+	<div class="alert alert-danger" role="alert"><%- messages.error %></div>
+	<% } %>
+
+    <div class="card">
+    	<div class="card-header">
+			Add Organisation
+		</div>
+        <div class="card-body">
+            <form action="/admin/add_org" method="post">
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" name="org_name" value="<%= org_name %>" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Logo:</label>
+                    <input type="text" class="form-control" name="org_logo" value="<%= org_logo %>"autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>About Us:</label>
+                    <input type="text" class="form-control" name="org_about_us" value="<%= org_about_us %>" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Tagline:</label>
+                    <input type="text" class="form-control" name="org_tagline" value="<%= org_tagline %>" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Landing Image:</label>
+                    <input type="text" class="form-control" name="org_landing_img" value="<%= org_landing_img %>"autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>About Us Image:</label>
+                    <input type="text" class="form-control" name="org_about_us_img" value="<%= org_about_us_img %>"autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info" value="Add Organisation"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

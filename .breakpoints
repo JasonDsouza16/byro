@@ -1,0 +1,20 @@
+{
+  "files": {
+    "views/admin/index.ejs": [
+      {
+        "id": "335e559c-e45c-45d0-a196-a107bab5f61d",
+        "line": 27,
+        "version": 382,
+        "index": 1001
+      }
+    ],
+    "views/frontend/menu.ejs": [
+      {
+        "id": "9932ae89-2874-4a65-864d-1591b3c824eb",
+        "line": 74,
+        "version": 525,
+        "index": 3642
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= org_name%> <%= branch_location %>'s Menu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body class="container" style="margin-top: 50px;">
+
+    <% if (messages.success) { %>
+    <div class="alert alert-success" role="alert"><%- messages.success %></div>
+    <% } %>
+
+    <% if (messages.error) { %>
+    <div class="alert alert-danger" role="alert"><%- messages.error %></div>
+    <% } %>
+
+    <% if(data.length) { %>
+    <div class="card"> 
+        <div class="card-header">
+            <ul class="nav nav-pills w-100">
+                <li class="nav-pill active">
+                    <a class="nav-link"><%= org_name%> <%= branch_location %>'s Menu</a>
+                </li>
+                <li class="nav-pill ml-auto">
+                    <a class="nav-link active" href="/home/<%= branch_id %>/add_menu">Add Dish</a>
+                </li>
+            </ul>
+        </div>
+    <div class="card-body">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">View</th>
+                    <th width="200px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% for(var i = 0; i< data.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= data[i][0] %></th>
+                    
+                    <td><%= data[i][1]%></td>
+                    <td><%= data[i][2]%></td>
+                    <td><%= data[i][3]%></td>
+                    <td><%= data[i][4]%></td>
+                    <td><a href="<%= data[i][5]%>" target="_blank" rel="noopener noreferrer"><img src="https://res.cloudinary.com/byro/image/upload/v1632035797/public/icon/view-icon.png"></a></td>
+                    <td>
+                        <a class="btn btn-success edit" href="/home/<%= branch_id %>/<%= data[i][0]%>/edit_menu">Edit</a>
+                        <a class="btn btn-danger delete" onclick="return alert('Are You sure?')" href="/home/<%= branch_id %>/<%= data[i][0]%>/delete_menu">Delete</a>                       
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+        <% } %>
+        
+        <!-- if result is empty -->
+        <% if(!data.length) { %>
+            <p class="text-center">No Menu found!</p>
+        <% } %>
+
+      </div>
+    </div>
+  </body>
+</html>
